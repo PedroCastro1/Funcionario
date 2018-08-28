@@ -36,7 +36,7 @@ public class Funcionario {
 	}
 	
 	public double getSalarioBruto() {
-		double salarioBruto = 0.0;
+		double salarioBruto = getSalarioBase();
 		if(getInsalubridade()) {
 			salarioBruto = salarioBase * 1.1;
 		}
@@ -58,14 +58,21 @@ public class Funcionario {
 		if(getSalarioBase() <= 2000.00) {
 			salarioLiquido = getSalarioBruto() - descontoINSS;
 		}
-		else if(getSalarioBase() > 2000.00 && getSalarioBase() < 5000.00) {
+		else if(getSalarioBase() > 2000.00 && getSalarioBase() <= 5000.00) {
 			impostoDeRenda = getSalarioBase() * 12/100;
 			salarioLiquido = getSalarioBruto() - (impostoDeRenda + descontoINSS); 
 		}
-		else if(getSalarioBase() >= 5000.00) {
+		else if(getSalarioBase() > 5000.00) {
 			impostoDeRenda = getSalarioBase() * 27.5/100.0;
 			salarioLiquido = getSalarioBruto() - (impostoDeRenda + descontoINSS);
 		}
 		return salarioLiquido;
+	}
+	
+	public static void main(String[] args) {
+		Funcionario f1 = new Funcionario(10, "Pedro", 5000.00, 0, false);
+		System.out.println(f1.getSalarioBase());
+		System.out.println(f1.getSalarioBruto());
+		System.out.println(f1.getSalarioLiquido());
 	}
 }
