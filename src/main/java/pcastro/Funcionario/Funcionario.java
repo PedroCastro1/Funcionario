@@ -48,26 +48,26 @@ public class Funcionario {
 
 	private double getINSS() {
 		double INSS = 0.045;
-       		double descontoINSS = getSalarioBase() * INSS;
-        	if(getSalarioBase() > 5000.0){
-            		descontoINSS = 5000.0 * INSS;
-        	}
-        	return descontoINSS;
-    	}
+    double descontoINSS = getSalarioBase() * INSS;
+    if(getSalarioBase() > 5000.0){
+      descontoINSS = 5000.0 * INSS;
+    }
+    return descontoINSS;
+  }
 
-   	 private double getImposto() {
-        	double impostoDeRenda = 0.0;    
-        	if(getSalarioBase() <= 2000.0){
-            		impostoDeRenda = 0.0;
-        	}
-        	if(getSalarioBase() > 2000.0 && getSalarioBase() <= 5000.0){
-            		impostoDeRenda = getSalarioBase() * 12/100.0;
-        	}
-        	else if(getSalarioBase() > 5000.0){
-            		impostoDeRenda = getSalarioBase() * 27.5/100.0;
-        	}
-        	 return impostoDeRenda;
-    	}
+  private double getImposto() {
+    double impostoDeRenda = 0.0;    
+    if(getSalarioBase() <= 2000.0){
+     impostoDeRenda = 0.0;
+    }
+    if(getSalarioBase() > 2000.0 && getSalarioBase() <= 5000.0){
+     impostoDeRenda = getSalarioBase() * 12/100.0;
+    }
+    else if(getSalarioBase() > 5000.0){
+     impostoDeRenda = getSalarioBase() * 27.5/100.0;
+    }
+    return impostoDeRenda;
+ 	}
 	
 	public double getSalarioLiquido() {
 		return getSalarioBruto() - (getImposto() + getINSS());
