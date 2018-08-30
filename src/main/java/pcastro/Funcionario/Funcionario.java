@@ -46,10 +46,9 @@ public class Funcionario {
 		return salarioBruto;
 	}
 
-    	
 	private double getINSS() {
-       		double descontoINSS = getSalarioBase() * INSS;
 		double INSS = 0.045;
+       		double descontoINSS = getSalarioBase() * INSS;
         	if(getSalarioBase() > 5000.0){
             		descontoINSS = 5000.0 * INSS;
         	}
