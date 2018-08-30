@@ -15,7 +15,8 @@ public class FuncionarioTest {
 		 		 "5001.00,0,false,3400.725", "1000.00,1,true,1065",
 		 		 "2001.00,2,true,1910.95", "5000.00,3,true,4825.00",
 		 		 "5001.00,1,true,3950.83"
-		   })
+		   		})
+	
 	public void testaFuncionario(double salBase, int nroDep, boolean ins, double rEsp) {
 		Funcionario f1 = new Funcionario(1,"Pedro", salBase, nroDep, ins);
 		double observado = f1.getSalarioLiquido();

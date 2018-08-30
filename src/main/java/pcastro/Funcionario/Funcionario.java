@@ -72,4 +72,8 @@ public class Funcionario {
 	public double getSalarioLiquido() {
 		return getSalarioBruto() - (getImposto() + getINSS());
 	}
+	
+	public String toString() {
+		return "ID: " + getNome() + " Nome: " + getNome() + " Salário Base: " + getSalarioBase() + " Dependentes: " + getNroDependentes();
+	}
 }
