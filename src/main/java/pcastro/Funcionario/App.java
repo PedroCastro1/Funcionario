@@ -7,7 +7,7 @@ public class App {
 		CadastroFuncionarios c = new CadastroFuncionarios();
 		ArrayList<Funcionario> lst = new ArrayList<Funcionario>();
 		c.cadastra();
-		lst = c.devolveList();
+		lst = c.getLista();
 		
 		for(Funcionario f: lst) {
 			System.out.println(f.toString());

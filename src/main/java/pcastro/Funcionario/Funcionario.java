@@ -74,6 +74,7 @@ public class Funcionario {
 	}
 	
 	public String toString() {
-		return "ID: " + getNome() + " Nome: " + getNome() + " Salário Base: " + getSalarioBase() + " Dependentes: " + getNroDependentes();
+		return "ID: " + getNome() + " Nome: " + getNome() + " Salário Base: "
+				+ getSalarioBase() + " Dependentes: " + getNroDependentes() + " Insalubridade: " + getInsalubridade();
 	}
 }

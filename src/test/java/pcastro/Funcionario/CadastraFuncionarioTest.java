@@ -1,20 +1,38 @@
 package pcastro.Funcionario;
 
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.*;
 import static org.hamcrest.Matchers.*;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import junitparams.JUnitParamsRunner;
-import java.util.ArrayList;
+import static org.hamcrest.beans.HasPropertyWithValue.hasProperty;
 
-@RunWith(JUnitParamsRunner.class)
+import org.junit.Before;
+import org.junit.Test;
+
 public class CadastraFuncionarioTest {
-	private CadastroFuncionarios c = new CadastroFuncionarios();
+	private CadastroFuncionarios c;
+	
+	@Before
+	public void setup() {
+		c = new CadastroFuncionarios();
+		c.cadastra();
+	}
 	
 	@Test
-	public void testaTamanhoList() {
-		c.cadastra();
-		ArrayList<Funcionario> lst = c.devolveList();
-		assertThat(lst, hasSize(greaterThan(0)));
+	public void testTam() {
+		assertThat(c.getLista(), hasSize(50));
+	}
+	
+	@Test
+	public void nomesNaoVazio() {
+		assertThat(c.getLista(),hasItem(allOf(hasProperty("nome",notNullValue()))));	
+	}
+	
+	@Test
+	public void matriculaMaior99(){
+		assertThat(c.getLista(),hasItem(allOf(hasProperty("matricula",greaterThan(0)))));
+	}
+	
+	@Test
+	public void nroDependentesMaior0(){
+		assertThat(c.getLista(),hasItem(allOf(hasProperty("nroDependentes",greaterThan(0)))));
 	}
 }
